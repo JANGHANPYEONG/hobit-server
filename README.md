@@ -1,25 +1,10 @@
-# Mongoose Node.js Express TypeScript application boilerplate with best practices for API development.
-
-![image](https://user-images.githubusercontent.com/10678997/57565876-01281b00-73f8-11e9-8d86-911faa4a6c0f.png)
-
-The main purpose of this repository is to show a good end-to-end project setup and workflow for writing a strongly-typed [Mongoose](https://mongoosejs.com/) [Node.js](https://nodejs.org/en/) [Express](https://expressjs.com/) code in [TypeScript](https://www.typescriptlang.org/) complete with middleware, models, routes, and types.
-
-This example comes with a complete REST API to handle Authentication and CRUD features on Users and their corresponding Profile. You may view the API documentation on the [Wiki](https://github.com/polcham/mongoose-express-ts/wiki).
-
-# Why TypeScript?
-
-While it's true that developing applications on an Untyped language such as **JavaScript**, is easier to learn and is faster to develop, it will undeniably get harder and harder to grasp as the application grows in scale. This in turn, leads to more run-time errors consuming more development hours, as the team gets accustomed to the growing codebase. And this is what this boilerplate hopes to achieve. By using the **TypeScript** standard, you'll have better team and code stability with **Interface Oriented Development**, leading to better standardized codes. TypeScript allows developers to focus more on exposed Interfaces or API, rather than having to know all the code by heart. This makes the codebase easier to maintain with big teams, especially if those teams are composed of developers of different skill levels.
-
-# Why Mongoose?
-
-[Mongoose](https://mongoosejs.com/) is an object document modeling (ODM) layer that sits on top of Node's MongoDB driver. If you are coming from SQL, it is similar to object relational mapping (ORM) for a relational database. While it is not required to use Mongoose with MongoDB, it is generally a good idea for various reasons. Since MongoDB is a denormalized NoSQL database, its inherently schema-less design means documents will have varying sets of fields with different data types. This provides your data model with as much flexibility as you wanted over time, however, it can be difficult to cope with coming from a SQL background. Mongoose defines a schema for your data models so your documents follow a specific structure with pre-defined data types. On top of that, Mongoose provides built-in type casting, validation, query building, and business logic hooks out-of-the-box which saves developers the pain of writing boilerplates for MongoDB.
-
 # Prerequisites
 
 To build and run this app locally you will need a few things:
 
 - Install [Node.js](https://nodejs.org/en/)
 - Install [VS Code](https://code.visualstudio.com/)
+- Install [Mongoose](https://www.mongodb.com/try/download/community)
 - You will need a **MongoDB server** which could either be hosted locally or online.
 - Once you know your MongoDB URI, set the value of **mongoURI** in **config/default.json**.
 
