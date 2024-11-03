@@ -6,9 +6,9 @@ import { IUser } from "./User";
  */
 export type TProfile = {
   user: IUser["_id"];
-  firstName: string;
-  lastName: string;
-  username: string;
+  name: string;
+  department: string;
+  phoneNumber: string;
 };
 
 /**
@@ -21,9 +21,9 @@ export interface IProfile extends TProfile, Document {}
  */
 const profileSchema: Schema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  username: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
+  department: { type: String, required: true },
+  phoneNumber: { type: String, required: true },
   date: { type: Date, default: Date.now },
 });
 

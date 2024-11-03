@@ -6,6 +6,7 @@ import authRoutes from "./routes/api/auth";
 import userRoutes from "./routes/api/user";
 import profileRoutes from "./routes/api/profile";
 import faqRoutes from "./routes/api/faq";
+import faqMetadataRoutes from "./routes/api/faqmetadata";
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/faq", faqRoutes);
+app.use("/api/faqMetadata", faqMetadataRoutes);
 
 const port = app.get("port");
 const server = app.listen(port, () =>

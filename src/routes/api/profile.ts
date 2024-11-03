@@ -16,7 +16,7 @@ router.get("/me", auth, async (req: Request, res: Response) => {
   try {
     const profile: IProfile = await Profile.findOne({
       user: req.userId,
-    }).populate("user", ["avatar", "email"]);
+    }).populate("user", ["email"]);
     if (!profile) {
       return res.status(HttpStatusCodes.BAD_REQUEST).json({
         errors: [
@@ -41,9 +41,9 @@ router.post(
   "/",
   [
     auth,
-    check("firstName", "First Name is required").not().isEmpty(),
-    check("lastName", "Last Name is required").not().isEmpty(),
-    check("username", "Username is required").not().isEmpty(),
+    check("name", "Name is required").not().isEmpty(),
+    check("department", "Department is required").not().isEmpty(),
+    check("phoneNumber", "Phone Number is required").not().isEmpty(),
   ],
   async (req: Request, res: Response) => {
     const errors = validationResult(req);
@@ -53,14 +53,14 @@ router.post(
         .json({ errors: errors.array() });
     }
 
-    const { firstName, lastName, username } = req.body;
+    const { name, department, phoneNumber } = req.body;
 
     // Build profile object based on TProfile
     const profileFields: TProfile = {
       user: req.userId,
-      firstName,
-      lastName,
-      username,
+      name,
+      department,
+      phoneNumber,
     };
 
     try {
@@ -107,7 +107,6 @@ router.post(
 router.get("/", async (_req: Request, res: Response) => {
   try {
     const profiles: IProfile[] = await Profile.find().populate("user", [
-      "avatar",
       "email",
     ]);
     res.json(profiles);
@@ -124,7 +123,7 @@ router.get("/user/:userId", async (req: Request, res: Response) => {
   try {
     const profile: IProfile = await Profile.findOne({
       user: req.params.userId,
-    }).populate("user", ["avatar", "email"]);
+    }).populate("user", ["email"]);
 
     if (!profile)
       return res
