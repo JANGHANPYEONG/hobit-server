@@ -2,9 +2,10 @@ import bodyParser from "body-parser";
 import express from "express";
 
 import connectDB from "../config/database";
-import auth from "./routes/api/auth";
-import user from "./routes/api/user";
-import profile from "./routes/api/profile";
+import authRoutes from "./routes/api/auth";
+import userRoutes from "./routes/api/user";
+import profileRoutes from "./routes/api/profile";
+import faqRoutes from "./routes/api/faq";
 
 const app = express();
 
@@ -23,9 +24,10 @@ app.get("/", (_req, res) => {
   res.send("API Running");
 });
 
-app.use("/api/auth", auth);
-app.use("/api/user", user);
-app.use("/api/profile", profile);
+app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/profile", profileRoutes);
+app.use("/api/faq", faqRoutes);
 
 const port = app.get("port");
 const server = app.listen(port, () =>

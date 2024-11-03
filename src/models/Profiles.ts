@@ -2,13 +2,8 @@ import { Document, model, Schema } from "mongoose";
 import { IUser } from "./User";
 
 /**
- * Type to model the Profile Schema for TypeScript.
- * @param user:ref => User._id
- * @param firstName:string
- * @param lastName:string
- * @param username:string
+ * Profile type definition
  */
-
 export type TProfile = {
   user: IUser["_id"];
   firstName: string;
@@ -17,52 +12,20 @@ export type TProfile = {
 };
 
 /**
- * Mongoose Document based on TProfile for TypeScript.
- * https://mongoosejs.com/docs/documents.html
- *
- * TProfile
- * @param user:ref => User._id
- * @param firstName:string
- * @param lastName:string
- * @param username:string
+ * Profile document interface extending Mongoose Document
  */
-
 export interface IProfile extends TProfile, Document {}
 
-const profileSchema: Schema = new Schema({
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-});
-
 /**
- * Mongoose Model based on TProfile for TypeScript.
- * https://mongoosejs.com/docs/models.html
- *
- * TProfile
- * @param user:ref => User._id
- * @param firstName:string
- * @param lastName:string
- * @param username:string
+ * Profile schema definition
  */
+const profileSchema: Schema = new Schema({
+  user: { type: Schema.Types.ObjectId, ref: "User" },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  username: { type: String, required: true, unique: true },
+  date: { type: Date, default: Date.now },
+});
 
 const Profile = model<IProfile>("Profile", profileSchema);
 

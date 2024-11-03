@@ -4,4 +4,12 @@
  */
 type payload = { userId: string };
 
+export interface FAQPayload {
+  mainCategory: { ko: string; en: string };
+  subCategory: { ko: string; en: string };
+  question: { ko: string; en: string };
+  answer: { ko: string[]; en: string[] };
+  createdBy: string;
+}
+
 export default payload;

@@ -13,7 +13,7 @@ To build and run this app locally you will need a few things:
 - Clone the repository
 
 ```
-git clone --depth=1 https://github.com/polcham/mongoose-express-ts.git <project_name>
+git clone --depth=1 https://github.com/JANGHANPYEONG/hobit-server.git <project_name>
 ```
 
 - Install dependencies
